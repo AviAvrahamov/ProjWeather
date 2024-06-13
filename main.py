@@ -11,10 +11,8 @@ inputCity = st.text_input("please enter City")
 response = requests.get("https://api.openweathermap.org/data/2.5/weather?q=" + inputCity +"&APPID=5b9ee17e7a2c2221a87953b1b3562db9")
 if response.status_code != 200:
     st.write("wrong input")
-    # print("wrong input")
 else:
     jsonBody = response.json()
-    # data = json.loads(jsonBody)
     main = jsonBody.get("main")
     if main:
         temp = main.get("temp") - 273.15
@@ -32,12 +30,5 @@ else:
     st.write(f"humidity : {humidity}")
     st.write(f"main : {main}")
     st.write(f"humidity : {conditions}")
-
-# print('temperature : ' , temp)
-# print('humidity : ' , humidity)
-# print('main : ' + main)
-# print('humidity : ' + conditions  )
-
-
 
 #  C:\Users\F8C0~1\AppData\Roaming\Python\Scripts
