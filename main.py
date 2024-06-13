@@ -6,18 +6,12 @@ weather = ''   # temperature  > temperature
 conditions = ''
 humidity = 0   # main > temperature
 
-txt1 = st.text_input("please enter City")
-if txt1:
-    txt2 = st.text_input("Enter some more text")
+inputCity = st.text_input("please enter City")
 
-
-
-
-inputCity = input("please enter City: ")
-inputCity = 'Berlin'
 response = requests.get("https://api.openweathermap.org/data/2.5/weather?q=" + inputCity +"&APPID=5b9ee17e7a2c2221a87953b1b3562db9")
 if response.status_code != 200:
-    print("wrong input")
+    st.write("wrong input")
+    # print("wrong input")
 else:
     jsonBody = response.json()
     # data = json.loads(jsonBody)
@@ -34,11 +28,10 @@ else:
         main = mainL.get("main")
         conditions = mainL.get('description')
 
-
-st.write(f"temperature : {temp}")
-st.write(f"humidity : {humidity}")
-st.write(f"main : {main}")
-st.write(f"humidity : {conditions}")
+    st.write("temperature :  {0:.1f}".format(temp))
+    st.write(f"humidity : {humidity}")
+    st.write(f"main : {main}")
+    st.write(f"humidity : {conditions}")
 
 # print('temperature : ' , temp)
 # print('humidity : ' , humidity)
