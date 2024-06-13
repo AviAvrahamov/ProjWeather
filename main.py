@@ -6,7 +6,7 @@ weather = ''   # temperature  > temperature
 conditions = ''
 humidity = 0   # main > temperature
 
-inputCity = st.text_input("please enter City")
+inputCity = st.text_input(r"$\textsf{\Huge Please enter city}$")
 
 response = requests.get("https://api.openweathermap.org/data/2.5/weather?q=" + inputCity +"&APPID=5b9ee17e7a2c2221a87953b1b3562db9")
 if response.status_code != 200:
